@@ -1,13 +1,18 @@
 package com.example.omnigontest.ui.results;
 
-public class ResultsPresenter implements IResultsContract.Presenter {
 
-    private IResultsContract.View mView;
+import com.example.omnigontest.base.AbstractMvpPresenter;
+import com.example.omnigontest.base.exception.ViewUnboundException;
 
-    public ResultsPresenter(IResultsContract.View view) {
-        if (view != null) {
-            mView = view;
-            mView.setPresenter(this);
+
+public class ResultsPresenter extends AbstractMvpPresenter<IResultsContract.View> implements IResultsContract.Presenter {
+
+    @Override
+    public void load() {
+        try {
+            getView().setLoading(true);
+        } catch (ViewUnboundException e) {
+            handleException(e);
         }
     }
 

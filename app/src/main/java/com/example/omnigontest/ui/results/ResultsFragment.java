@@ -8,36 +8,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.omnigontest.R;
+import com.example.omnigontest.base.AbstractMvpView;
 
-public class ResultsFragment extends Fragment implements IResultsContract.View {
 
-    private IResultsContract.Presenter mPresenter;
+public class ResultsFragment extends AbstractMvpView<IResultsContract.Presenter> implements IResultsContract.View {
 
-    @Override
-    public void setPresenter(IResultsContract.Presenter presenter) {
-        if (presenter != null) mPresenter = presenter;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public static ResultsFragment getInstance() {
+        return new ResultsFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View root = inflater.inflate(R.layout.fragment_results, container, false);
+        return root;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        mPresenter.subscribe();
+    public void setLoading(boolean start) {
+        mPresenter.load();
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
-        mPresenter.unsubscribe();
+    public void renderLoadingState() {
+
+    }
+
+    @Override
+    public void renderDataState() {
+
+    }
+
+    @Override
+    public void renderErrorState() {
+
     }
 }

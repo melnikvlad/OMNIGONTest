@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OMNIGONTest</string>
+    <string name="fixtures">fixtures</string>
+    <string name="results">results</string>
+    <string name="postponed">postponed</string>
+    <string name="date_long_templ">| %1$s</string>
 </resources>

@@ -7,9 +7,13 @@ public interface IResultsContract {
 
     interface View extends IBaseView<Presenter> {
 
+        void setLoading(boolean start);
+
     }
 
     interface Presenter extends IBasePresenter {
+
+        void load();
 
     }
 }
