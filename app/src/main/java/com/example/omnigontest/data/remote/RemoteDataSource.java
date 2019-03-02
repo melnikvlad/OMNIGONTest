@@ -1,9 +1,7 @@
-package com.example.omnigontest.data;
+package com.example.omnigontest.data.remote;
 
-import com.example.omnigontest.data.remote.ApiClient;
-import com.example.omnigontest.data.remote.IService;
-import com.example.omnigontest.data.remote.model.FixturesResponse;
 import com.example.omnigontest.data.remote.model.beans.Fixture;
+import com.example.omnigontest.data.results.model.Result;
 
 import java.util.List;
 
@@ -20,5 +18,10 @@ public class RemoteDataSource implements IRemoteDataSource {
     @Override
     public Flowable<List<Fixture>> fetchFixtures() {
         return mService.fetchFixtures();
+    }
+
+    @Override
+    public Flowable<List<Result>> fetchResults() {
+        return mService.fetchResults();
     }
 }

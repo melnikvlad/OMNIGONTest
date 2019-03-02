@@ -1,7 +1,7 @@
 package com.example.omnigontest.data.remote;
 
-import com.example.omnigontest.data.remote.model.FixturesResponse;
 import com.example.omnigontest.data.remote.model.beans.Fixture;
+import com.example.omnigontest.data.results.model.Result;
 import com.example.omnigontest.utils.Constants;
 
 import java.util.List;
@@ -15,5 +15,5 @@ public interface IService {
     Flowable<List<Fixture>> fetchFixtures();
 
     @GET("results" + Constants.URL_POSTFIX)
-    void fetchResults();
+    Flowable<List<Result>> fetchResults();
 }

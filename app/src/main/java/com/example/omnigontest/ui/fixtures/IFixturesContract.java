@@ -2,7 +2,7 @@ package com.example.omnigontest.ui.fixtures;
 
 import com.example.omnigontest.base.IBasePresenter;
 import com.example.omnigontest.base.IBaseView;
-import com.example.omnigontest.data.remote.model.beans.Fixture;
+import com.example.omnigontest.data.remote.model.FixtureUI;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface IFixturesContract {
 
         void showProgress(boolean show);
 
-        void setFixtures(List<Fixture> fixtures);
+        void setFixtures(List<FixtureUI> fixtures);
 
     }
 

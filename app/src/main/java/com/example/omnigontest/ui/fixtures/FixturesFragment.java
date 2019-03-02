@@ -12,8 +12,8 @@ import android.widget.ProgressBar;
 
 import com.example.omnigontest.R;
 import com.example.omnigontest.base.AbstractMvpView;
-import com.example.omnigontest.data.remote.model.beans.Fixture;
-import com.example.omnigontest.ui.fixtures.adapter.FixturesAdapter;
+import com.example.omnigontest.data.remote.model.FixtureUI;
+import com.example.omnigontest.ui.adapter.FixturesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class FixturesFragment extends AbstractMvpView<IFixturesContract.Presente
     }
 
     @Override
-    public void setFixtures(List<Fixture> fixtures) {
+    public void setFixtures(List<FixtureUI> fixtures) {
         mAdapter.add(fixtures);
     }
 
