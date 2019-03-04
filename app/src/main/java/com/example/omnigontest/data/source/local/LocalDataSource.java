@@ -8,14 +8,17 @@ import com.example.omnigontest.data.source.ILocalDataSource;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Flowable;
 
 public class LocalDataSource implements ILocalDataSource {
 
-    private static MyDB sDB;
+    @Inject
+    MyDB sDB;
 
-    public LocalDataSource(Application context) {
-        sDB = MyDB.getDB(context);
+    public LocalDataSource(MyDB db) {
+        sDB = db;
     }
 
     @Override

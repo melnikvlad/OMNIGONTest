@@ -1,10 +1,13 @@
 package com.example.omnigontest.ui.results;
 
 
+import com.example.omnigontest.App;
 import com.example.omnigontest.base.AbstractMvpPresenter;
 import com.example.omnigontest.base.exception.ViewUnboundException;
 import com.example.omnigontest.data.repository.IResultsRepository;
 import com.example.omnigontest.data.repository.result.ResultsRepository;
+
+import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -12,13 +15,13 @@ import io.reactivex.schedulers.Schedulers;
 
 
 public class ResultsPresenter extends AbstractMvpPresenter<IResultsContract.View> implements IResultsContract.Presenter {
-
-    private IResultsRepository mRepository;
-    private CompositeDisposable mDisposable;
+    @Inject
+    IResultsRepository mRepository;
+    @Inject
+    CompositeDisposable mDisposable;
 
     public ResultsPresenter() {
-        mRepository = new ResultsRepository();
-        mDisposable = new CompositeDisposable();
+        App.getInstance().getAppComponent().inject(this);
     }
 
     @Override

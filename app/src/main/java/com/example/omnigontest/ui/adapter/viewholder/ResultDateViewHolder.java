@@ -49,10 +49,10 @@ public class ResultDateViewHolder extends RecyclerView.ViewHolder {
         textAwayScore.setText(String.valueOf(item.score.away));
 
         if (item.score.winner.equals(HOME)) {
-            textHomeScore.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+            textHomeScore.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
             textAwayScore.setTextColor(ContextCompat.getColor(context, R.color.black));
         } else {
-            textAwayScore.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+            textAwayScore.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
             textHomeScore.setTextColor(ContextCompat.getColor(context, R.color.black));
         }
     }

@@ -4,6 +4,8 @@ package com.example.omnigontest.data.repository.fixture;
 import com.example.omnigontest.App;
 import com.example.omnigontest.data.model.fixture.beans.Fixture;
 import com.example.omnigontest.data.repository.IFixturesRepository;
+import com.example.omnigontest.data.source.ILocalDataSource;
+import com.example.omnigontest.data.source.IRemoteDataSource;
 import com.example.omnigontest.data.source.local.LocalDataSource;
 import com.example.omnigontest.data.source.remote.RemoteDataSource;
 import com.example.omnigontest.data.model.fixture.FixtureUI;
@@ -13,18 +15,22 @@ import com.example.omnigontest.utils.DateUtils;
 import java.text.ParseException;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 public class FixtureRepository implements IFixturesRepository {
+    @Inject
+    public IRemoteDataSource mRemoteSource;
+    @Inject
+    public ILocalDataSource mLocalSource;
 
-    private RemoteDataSource mRemoteSource;
-    private LocalDataSource mLocalSource;
     private String currDate = null;
 
-    public FixtureRepository() {
-        mRemoteSource = new RemoteDataSource();
-        mLocalSource = new LocalDataSource(App.getInstance());
+    public FixtureRepository(IRemoteDataSource remoteDataSource, ILocalDataSource localDataSource) {
+        mRemoteSource = remoteDataSource;
+        mLocalSource = localDataSource;
     }
 
     @Override

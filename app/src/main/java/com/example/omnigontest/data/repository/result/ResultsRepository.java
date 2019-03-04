@@ -1,22 +1,25 @@
 package com.example.omnigontest.data.repository.result;
 
-import com.example.omnigontest.data.repository.IResultsRepository;
-import com.example.omnigontest.data.source.remote.RemoteDataSource;
-import com.example.omnigontest.data.model.result.ResultUI;
 import com.example.omnigontest.data.model.UIObject;
+import com.example.omnigontest.data.model.result.ResultUI;
+import com.example.omnigontest.data.repository.IResultsRepository;
+import com.example.omnigontest.data.source.IRemoteDataSource;
 import com.example.omnigontest.utils.DateUtils;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Flowable;
 
 public class ResultsRepository implements IResultsRepository {
+    @Inject
+    public IRemoteDataSource mRemoteSource;
 
-    private RemoteDataSource mRemoteSource;
     private String currDate = null;
 
-    public ResultsRepository() {
-        mRemoteSource = new RemoteDataSource();
+    public ResultsRepository(IRemoteDataSource remoteDataSource) {
+        mRemoteSource = remoteDataSource;
     }
 
     @Override

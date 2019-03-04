@@ -8,14 +8,16 @@ import com.example.omnigontest.data.source.IRemoteDataSource;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Flowable;
 
 public class RemoteDataSource implements IRemoteDataSource {
+    @Inject
+    public IService mService;
 
-    private IService mService;
-
-    public RemoteDataSource() {
-        mService = new ApiClient().api();
+    public RemoteDataSource(IService service) {
+        mService = service;
     }
 
     @Override
