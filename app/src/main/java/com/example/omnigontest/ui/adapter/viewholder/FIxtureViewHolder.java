@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.omnigontest.R;
-import com.example.omnigontest.data.remote.model.beans.Fixture;
+import com.example.omnigontest.data.model.fixture.beans.Fixture;
 import com.example.omnigontest.utils.DateUtils;
 
 import java.util.Objects;

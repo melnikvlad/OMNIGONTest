@@ -10,4 +10,6 @@ public interface IBaseView<T extends IBasePresenter> {
 
     void renderErrorState();
 
+    void renderRefreshingState();
+
 }

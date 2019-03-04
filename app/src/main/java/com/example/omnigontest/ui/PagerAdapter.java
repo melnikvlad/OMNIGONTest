@@ -21,13 +21,17 @@ public class PagerAdapter extends FragmentPagerAdapter {
     private static final int TAB_RESULTS = 1;
     private static final int TAB_COUNT = 2;
 
+    private int mSelectedPos;
+
     private final Context mContext;
     private final List<Fragment> mList;
+
 
     PagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
         mList = new ArrayList<>();
+        mSelectedPos = TAB_FIXTURES;
     }
 
     void addFragment(Fragment fragment) {
@@ -50,13 +54,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
         String title = null;
         switch (position) {
             case TAB_FIXTURES:
+                mSelectedPos = TAB_FIXTURES;
                 title = mContext.getString(R.string.fixtures);
                 break;
             case TAB_RESULTS:
+                mSelectedPos = TAB_RESULTS;
                 title = mContext.getString(R.string.results);
                 break;
         }
 
         return title;
+    }
+
+    int getSelectedPos() {
+        return mSelectedPos;
     }
 }

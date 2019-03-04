@@ -2,8 +2,8 @@ package com.example.omnigontest.ui.fixtures;
 
 import com.example.omnigontest.base.AbstractMvpPresenter;
 import com.example.omnigontest.base.exception.ViewUnboundException;
-import com.example.omnigontest.data.FixtureRepository;
-import com.example.omnigontest.data.IFixturesRepository;
+import com.example.omnigontest.data.repository.fixture.FixtureRepository;
+import com.example.omnigontest.data.repository.IFixturesRepository;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -37,20 +37,61 @@ public class FixturesPresenter extends AbstractMvpPresenter<IFixturesContract.Vi
         } catch (ViewUnboundException e) {
             handleException(e);
         }
+
+        getCache();
+    }
+
+    @Override
+    public void refresh() {
+        try {
+            getView().renderRefreshingState();
+        } catch (ViewUnboundException e) {
+            handleException(e);
+        }
+
+        clearCacheAndFetch();
+    }
+
+    private void getCache() {
+        mDisposable.add(
+                mRepository.getCachedFixtures()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnError(throwable -> getView().renderErrorState())
+                        .subscribe(
+                                fixtures -> {
+                                    if (fixtures == null || fixtures.isEmpty()) {
+                                        fetchData();
+                                    } else {
+                                        getView().setFixtures(fixtures);
+                                        getView().renderDataState();
+                                    }
+                                }
+                        ));
+    }
+
+    private void clearCacheAndFetch() {
+        mDisposable.add(
+                mRepository.clearCache()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                code -> fetchData()
+                        )
+        );
+    }
+
+    private void fetchData() {
         mDisposable.add(
                 mRepository.getFixtures()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
+                        .doOnError(throwable -> getView().renderErrorState())
                         .subscribe(
                                 fixtures -> {
                                     getView().setFixtures(fixtures);
                                     getView().renderDataState();
                                 }
                         ));
-    }
-
-    @Override
-    public void refresh() {
-
     }
 }

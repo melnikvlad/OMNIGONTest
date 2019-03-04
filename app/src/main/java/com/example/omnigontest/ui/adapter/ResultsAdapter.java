@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.omnigontest.data.remote.model.ResultUI;
-import com.example.omnigontest.data.remote.model.UIObject;
+import com.example.omnigontest.data.model.result.ResultUI;
+import com.example.omnigontest.data.model.UIObject;
 import com.example.omnigontest.ui.adapter.viewholder.ResultDateViewHolder;
 import com.example.omnigontest.ui.adapter.viewholder.ResultViewHolder;
 

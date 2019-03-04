@@ -4,4 +4,8 @@
     <string name="results">results</string>
     <string name="postponed">postponed</string>
     <string name="date_long_templ">| %1$s</string>
+    <string name="textfield">Ololo lofldof</string>
+    <string name="editField">Type text here...</string>
+    <string name="loading">Загрузка ... \n Пожалуйста подождите.</string>
+    <string name="error_loading">Ошибка :( \\n Сервер не отвечает</string>
 </resources>

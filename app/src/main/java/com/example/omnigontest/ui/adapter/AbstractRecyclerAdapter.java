@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.omnigontest.R;
-import com.example.omnigontest.data.remote.model.UIObject;
+import com.example.omnigontest.data.model.UIObject;
 import com.example.omnigontest.ui.adapter.viewholder.FixtureDateViewHolder;
 import com.example.omnigontest.ui.adapter.viewholder.ResultDateViewHolder;
 import com.example.omnigontest.ui.adapter.viewholder.EmptyViewHolder;

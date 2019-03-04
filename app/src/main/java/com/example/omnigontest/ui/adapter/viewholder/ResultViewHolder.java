@@ -1,7 +1,6 @@
 package com.example.omnigontest.ui.adapter.viewholder;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.omnigontest.R;
-import com.example.omnigontest.data.remote.model.beans.Fixture;
-import com.example.omnigontest.data.results.model.Result;
+import com.example.omnigontest.data.model.result.beans.Result;
 import com.example.omnigontest.utils.DateUtils;
-
-import java.util.Objects;
 
 public class ResultViewHolder extends RecyclerView.ViewHolder {
 

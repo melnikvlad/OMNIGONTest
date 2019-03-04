@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.omnigontest.R;
-import com.example.omnigontest.data.results.model.Result;
+import com.example.omnigontest.data.model.result.beans.Result;
 import com.example.omnigontest.utils.DateUtils;
 
 public class ResultDateViewHolder extends RecyclerView.ViewHolder {
